@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+
+            <View
+                android:id="@+id/view_company_title_background"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:background="@color/green"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imageview_company_icon"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/view_company_title_background"
+                app:layout_constraintLeft_toLeftOf="@id/view_company_title_background"
+                app:layout_constraintTop_toTopOf="@id/view_company_title_background"
+                app:urlToImage="@{item.logoPath}" />
+
+            <TextView
+                android:id="@+id/text_company_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="@{item.name}"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@id/text_company_industry_name"
+                app:layout_constraintLeft_toRightOf="@id/imageview_company_icon"
+                app:layout_constraintTop_toTopOf="@id/view_company_title_background" />
+
+            <TextView
+                android:id="@+id/text_company_industry_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="1dp"
+                android:text="@{item.industryName}"
+                android:textColor="#777777"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/view_company_title_background"
+                app:layout_constraintLeft_toRightOf="@id/imageview_company_icon"
+                app:layout_constraintTop_toBottomOf="@id/text_company_name" />
+
+            <View
+                android:id="@+id/line_gray1"
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:background="@color/gray1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_company_title_background" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <data>
+
+        <!--        <variable
+                    name="companySearch"
+                    type="com.eosr14.jobplanetexampleapp.model.CompanySearch" />-->
+
+        <variable
+            name="item"
+            type="com.eosr14.jobplanetexampleapp.model.CompanySearch.Items" />
+
+
+        <!--        <variable-->
+        <!--            name="meetingRoomCard"-->
+        <!--            type="com.musinsa.meetingroom.model.MeetingRoomCard" />-->
+
+    </data>
+
+</layout>
