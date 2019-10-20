@@ -33,18 +33,15 @@ class MainActivity : BaseActivity(), MainViewModelInterface {
     }
 
     private fun bindView() {
-
         recyclerview_main.run {
             addItemDecoration(VerticalMarginDecoration(this@MainActivity))
             layoutManager = LinearLayoutManager(context).apply { orientation = RecyclerView.VERTICAL }
             adapter = MainListAdapter(object : BaseRecyclerViewAdapter.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int, adapter: BaseRecyclerViewAdapter<*, *>) {
-                    Toast.makeText(context, "테스트 한다 Position = $position", Toast.LENGTH_SHORT).show()
-//                    DetailActivity.startActivity(context, (adapter as MainListAdapter).getItem(position))
+                    Toast.makeText(context, "테스트 Position = $position", Toast.LENGTH_SHORT).show()
                 }
             })
         }
-
 
         mainViewModel.isProgress.observe(this@MainActivity, Observer {
             it?.let { isProgress ->
@@ -58,6 +55,7 @@ class MainActivity : BaseActivity(), MainViewModelInterface {
 
 
     // MainViewModelInterface [--
+    override fun showErrorToast() = showNetworkErrorToast()
     // --] MainViewModelInterface
 
 }

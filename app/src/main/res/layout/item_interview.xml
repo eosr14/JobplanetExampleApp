@@ -28,7 +28,7 @@
                 app:layout_constraintGuide_end="10dp" />
 
             <View
-                android:id="@+id/view_company_title_background"
+                android:id="@+id/view_interview_title_background"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 app:layout_constraintLeft_toLeftOf="@id/guideline_left"
@@ -36,123 +36,95 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/imageview_company_icon"
+                android:id="@+id/imageview_interview_icon"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/view_company_title_background"
-                app:layout_constraintLeft_toLeftOf="@id/view_company_title_background"
-                app:layout_constraintTop_toTopOf="@id/view_company_title_background"
+                app:layout_constraintBottom_toBottomOf="@id/view_interview_title_background"
+                app:layout_constraintLeft_toLeftOf="@id/view_interview_title_background"
+                app:layout_constraintTop_toTopOf="@id/view_interview_title_background"
                 app:urlToImage="@{item.logoPath}" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_company_name"
+                android:id="@+id/text_interview_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginBottom="3dp"
                 android:text="@{item.name}"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@id/text_company_rate_total_avg"
-                app:layout_constraintLeft_toRightOf="@id/imageview_company_icon"
-                app:layout_constraintTop_toTopOf="@id/view_company_title_background"
+                app:layout_constraintBottom_toTopOf="@id/text_interview_rate_total_avg"
+                app:layout_constraintLeft_toRightOf="@id/imageview_interview_icon"
+                app:layout_constraintTop_toTopOf="@id/view_interview_title_background"
                 app:layout_constraintVertical_chainStyle="packed" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_company_rate_total_avg"
+                android:id="@+id/text_interview_rate_total_avg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="3dp"
                 android:text="@{String.valueOf(item.rateTotalAvg)}"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@id/view_company_title_background"
-                app:layout_constraintLeft_toRightOf="@id/imageview_company_icon"
-                app:layout_constraintRight_toLeftOf="@id/text_company_industry_name"
-                app:layout_constraintTop_toBottomOf="@id/text_company_name" />
+                app:layout_constraintBottom_toBottomOf="@id/view_interview_title_background"
+                app:layout_constraintLeft_toRightOf="@id/imageview_interview_icon"
+                app:layout_constraintRight_toLeftOf="@id/text_interview_industry_name"
+                app:layout_constraintTop_toBottomOf="@id/text_interview_name" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_company_industry_name"
+                android:id="@+id/text_interview_industry_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text="@{item.industryName}"
                 android:textColor="@color/gray2"
                 android:textSize="12sp"
-                app:layout_constraintLeft_toRightOf="@id/text_company_rate_total_avg"
-                app:layout_constraintRight_toRightOf="@id/view_company_description_background"
-                app:layout_constraintTop_toTopOf="@id/text_company_rate_total_avg" />
+                app:layout_constraintLeft_toRightOf="@id/text_interview_rate_total_avg"
+                app:layout_constraintRight_toRightOf="@id/view_interview_title_background"
+                app:layout_constraintTop_toTopOf="@id/text_interview_rate_total_avg" />
 
             <View
                 android:id="@+id/line_gray1"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:background="@color/gray1"
-                app:layout_constraintBottom_toTopOf="@id/view_company_description_background"
+                app:layout_constraintBottom_toTopOf="@id/view_interview_description_background"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view_company_title_background" />
+                app:layout_constraintTop_toBottomOf="@id/view_interview_title_background" />
 
             <View
-                android:id="@+id/view_company_description_background"
+                android:id="@+id/view_interview_description_background"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
+                android:background="@android:color/holo_blue_dark"
                 app:layout_constraintLeft_toLeftOf="@id/guideline_left"
                 app:layout_constraintRight_toRightOf="@id/guideline_right"
                 app:layout_constraintTop_toBottomOf="@+id/line_gray1" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_company_review_summary"
+                android:id="@+id/text_interview_question"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginTop="20dp"
-                android:text="@{item.reviewSummary}"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="@id/view_company_description_background"
-                app:layout_constraintRight_toRightOf="@id/view_company_description_background"
-                app:layout_constraintTop_toTopOf="@id/view_company_description_background" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_company_salary_avg"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="13sp"
-                app:layout_constraintLeft_toLeftOf="@id/view_company_description_background"
-                app:layout_constraintRight_toRightOf="@id/view_company_description_background"
-                app:layout_constraintTop_toBottomOf="@id/text_company_review_summary"
-                app:salaryAvg="@{item.salaryAvg}" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_company_interview_question"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
                 android:text="@{@string/main_company_interview_question(item.interviewQuestion)}"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@id/view_company_description_background"
-                app:layout_constraintLeft_toLeftOf="@id/view_company_description_background"
-                app:layout_constraintRight_toRightOf="@id/view_company_description_background"
-                app:layout_constraintTop_toBottomOf="@id/text_company_salary_avg" />
-
-            <View
-                android:id="@+id/line_gray2"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="@color/gray1"
-                app:layout_constraintLeft_toLeftOf="@id/guideline_left"
-                app:layout_constraintRight_toRightOf="@id/guideline_right"
-                app:layout_constraintTop_toBottomOf="@id/view_company_description_background" />
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/text_interview_more"
+                app:layout_constraintLeft_toLeftOf="@id/view_interview_description_background"
+                app:layout_constraintRight_toRightOf="@id/view_interview_description_background"
+                app:layout_constraintTop_toTopOf="@id/view_interview_description_background" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_company_more"
+                android:id="@+id/text_interview_more"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:gravity="center"
-                android:text="기업정보 더보기"
+                android:text="면접리뷰 더보기"
                 android:textSize="12sp"
+                android:background="@android:color/holo_red_dark"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="@id/guideline_right"
-                app:layout_constraintTop_toBottomOf="@id/line_gray2" />
+                app:layout_constraintTop_toBottomOf="@id/view_interview_description_background" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

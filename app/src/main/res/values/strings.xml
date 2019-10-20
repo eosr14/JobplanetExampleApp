@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">JobplanetExampleApp</string>
     <string name="error_network_message">네트워크에 접속할 수 없습니다.\n네트워크 연결 상태를 확인해주세요.</string>
+
+    <string name="main_company_salary_avg">평균연봉 %s 만원</string>
+    <string name="main_company_interview_question">면접질문\n%s</string>
+
+    <string name="main_review_pros">장점 %s</string>
+    <string name="main_review_cons">단점 %s</string>
+
 </resources>

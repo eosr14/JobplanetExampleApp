@@ -29,14 +29,6 @@ class MainListAdapter(onItemClickListener: OnItemClickListener) :
         EMPTY("EMPTY_TEST")
     }
 
-//    enum class CollectionNames(val value: String) {
-//        USERS("Users"),
-//        MEETING_ROOMS("MeetingRooms"),
-//        RESERVATIONS("Reservations"),
-//        APP_VERSION("AppVersion")
-//    }
-//    fireBaseFireStore.collection(FireStoreFields.CollectionNames.USERS.value)
-
     init {
         this.onItemClickListener = onItemClickListener
     }
@@ -44,6 +36,9 @@ class MainListAdapter(onItemClickListener: OnItemClickListener) :
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position).cellType) {
             CompanyItemType.COMPANY.value -> CompanyItemType.COMPANY.ordinal
+            CompanyItemType.JOB_POSTING.value -> CompanyItemType.JOB_POSTING.ordinal
+            CompanyItemType.REVIEW.value -> CompanyItemType.REVIEW.ordinal
+            CompanyItemType.INTERVIEW.value -> CompanyItemType.INTERVIEW.ordinal
             else -> CompanyItemType.EMPTY.ordinal
         }
     }
@@ -54,25 +49,12 @@ class MainListAdapter(onItemClickListener: OnItemClickListener) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-//        return MainListCompanyViewHolder(
-//            DataBindingUtil.inflate(
-//                LayoutInflater.from(parent.context),
-//                R.layout.item_search_list,
-//                parent,
-//                false
-//            )
-//        )
-
         return when(viewType) {
             CompanyItemType.COMPANY.ordinal -> MainListCompanyViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_company, parent, false))
+            CompanyItemType.JOB_POSTING.ordinal -> MainListJobPostingViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_job_posting, parent, false))
+            CompanyItemType.REVIEW.ordinal -> MainListReViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_review, parent, false))
+            CompanyItemType.INTERVIEW.ordinal -> MainListInterViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_interview, parent, false))
             else -> MainListEmptyViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_empty, parent, false))
         }
     }
-
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-//        return when (viewType) {
-//            ReservationViewType.EMPTY.ordinal -> ReservationListEmptyViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_reservation_empty, parent, false))
-//            else -> ReservationListViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_reservation_list, parent, false), selectedDate)
-//        }
-//    }
 }

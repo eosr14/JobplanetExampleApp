@@ -99,8 +99,8 @@ data class CompanySearch(
         @SerializedName("city_ids")
         val cityIds: List<Int> = mutableListOf(),
 
-//        @SerializedName("deadline")
-//        val deadline: List<DeadLine> = mutableListOf(),
+        @SerializedName("deadline")
+        val deadLine: DeadLine = DeadLine(),
 
         @SerializedName("recruitment_type_ids")
         val recruitmentTypeIds: List<Int> = mutableListOf(),

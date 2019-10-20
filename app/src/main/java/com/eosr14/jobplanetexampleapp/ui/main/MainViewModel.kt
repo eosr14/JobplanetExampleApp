@@ -19,20 +19,24 @@ class MainViewModel(
         requestCompanySearch()
     }
 
-    fun requestCompanySearch() {
+    private fun requestCompanySearch() {
+        progress.value = true
         addDisposable(
             RetrofitManager.requestCompanySearch()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     _searchItems.value = it.items
+                    progress.value = false
                 }, {
+                    progress.value = false
+                    mainViewModelInterface.showErrorToast()
                 })
         )
     }
 
-
     fun onClickNotification() {}
+
     fun onClickMyInfo() {}
 
 }

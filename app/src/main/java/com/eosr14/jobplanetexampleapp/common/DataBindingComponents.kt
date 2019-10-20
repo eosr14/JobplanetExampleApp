@@ -3,8 +3,10 @@ package com.eosr14.jobplanetexampleapp.common
 import android.graphics.drawable.Animatable
 import android.net.Uri
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.eosr14.jobplanetexampleapp.R
 import com.eosr14.jobplanetexampleapp.model.CompanySearch
 import com.eosr14.jobplanetexampleapp.ui.main.MainListAdapter
 import com.facebook.drawee.backends.pipeline.Fresco
@@ -13,6 +15,8 @@ import com.facebook.drawee.view.SimpleDraweeView
 import com.facebook.imagepipeline.common.RotationOptions
 import com.facebook.imagepipeline.image.ImageInfo
 import com.facebook.imagepipeline.request.ImageRequestBuilder
+import java.text.DecimalFormat
+
 
 object DataBindingComponents {
 
@@ -55,6 +59,17 @@ object DataBindingComponents {
             }
             this.build()
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter("salaryAvg")
+    fun setTextSalaryAvg(textView: TextView, salaryAvg: Int) {
+        textView.text = String.format(
+            textView.context.getString(
+                R.string.main_company_salary_avg,
+                DecimalFormat("###,###").format(salaryAvg)
+            ), TextView.BufferType.SPANNABLE
+        )
     }
 
 }
