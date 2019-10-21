@@ -1,13 +1,17 @@
 package com.eosr14.jobplanetexampleapp.ui.main
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.eosr14.jobplanetexampleapp.common.HorizontalMarginDecoration
 import com.eosr14.jobplanetexampleapp.R
 import com.eosr14.jobplanetexampleapp.common.base.BaseRecyclerViewAdapter
 import com.eosr14.jobplanetexampleapp.common.base.BaseViewHolder
 import com.eosr14.jobplanetexampleapp.model.CompanySearch
+import kotlinx.android.synthetic.main.item_horizontal_theme.view.*
 
 class MainListAdapter(onItemClickListener: OnItemClickListener) :
     BaseRecyclerViewAdapter<CompanySearch.Items, BaseViewHolder<CompanySearch.Items>>() {
@@ -26,7 +30,6 @@ class MainListAdapter(onItemClickListener: OnItemClickListener) :
         INTERVIEW("CELL_TYPE_INTERVIEW"),
         SALARY("CELL_TYPE_SALARY"),
         REVIEW("CELL_TYPE_REVIEW"),
-        EMPTY("EMPTY_TEST")
     }
 
     init {
@@ -39,13 +42,31 @@ class MainListAdapter(onItemClickListener: OnItemClickListener) :
             CompanyItemType.JOB_POSTING.value -> CompanyItemType.JOB_POSTING.ordinal
             CompanyItemType.REVIEW.value -> CompanyItemType.REVIEW.ordinal
             CompanyItemType.INTERVIEW.value -> CompanyItemType.INTERVIEW.ordinal
-            else -> CompanyItemType.EMPTY.ordinal
+            CompanyItemType.SALARY.value -> CompanyItemType.SALARY.ordinal
+            CompanyItemType.HORIZONTAL_THEME.value -> CompanyItemType.HORIZONTAL_THEME.ordinal
+            else -> 0
         }
     }
 
-
     override fun onBindView(holder: BaseViewHolder<CompanySearch.Items>, position: Int) {
-        holder.bind(getItem(position))
+        when (holder) {
+            is MainListHorizontalThemeHolder -> {
+                holder.itemView.recyclerview_horizontal_theme.run {
+                    addItemDecoration(
+                        HorizontalMarginDecoration(
+                            context
+                        )
+                    )
+                    layoutManager = LinearLayoutManager(context).apply { orientation = RecyclerView.HORIZONTAL }
+                    adapter = MainHorizontalThemeAdapter(getItem(position).themes, object : OnItemClickListener {
+                        override fun onItemClick(view: View, position: Int, adapter: BaseRecyclerViewAdapter<*, *>) {
+                            // TODO : 상세 페이지로 이동
+                        }
+                    })
+                }
+            }
+            else -> holder.bind(getItem(position))
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -54,6 +75,8 @@ class MainListAdapter(onItemClickListener: OnItemClickListener) :
             CompanyItemType.JOB_POSTING.ordinal -> MainListJobPostingViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_job_posting, parent, false))
             CompanyItemType.REVIEW.ordinal -> MainListReViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_review, parent, false))
             CompanyItemType.INTERVIEW.ordinal -> MainListInterViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_interview, parent, false))
+            CompanyItemType.SALARY.ordinal -> MainListSalaryViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_salary, parent, false))
+            CompanyItemType.HORIZONTAL_THEME.ordinal -> MainListHorizontalThemeHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_horizontal_theme, parent, false))
             else -> MainListEmptyViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_empty, parent, false))
         }
     }

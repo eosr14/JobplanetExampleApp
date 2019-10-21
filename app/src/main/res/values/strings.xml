@@ -8,4 +8,8 @@
     <string name="main_review_pros">장점 %s</string>
     <string name="main_review_cons">단점 %s</string>
 
+    <string name="main_company_more">기업정보 더보기</string>
+    <string name="main_interview_more">면접리뷰 더보기</string>
+    <string name="main_review_more">기업리뷰 더보기</string>
+    <string name="main_salary_more">연봉정보 더보기</string>
 </resources>

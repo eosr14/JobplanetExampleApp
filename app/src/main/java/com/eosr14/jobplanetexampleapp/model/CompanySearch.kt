@@ -83,7 +83,7 @@ data class CompanySearch(
         val count: Int = 0,
 
         @SerializedName("themes")
-        val themes: List<Theme> = mutableListOf(),
+        val themes: MutableList<Theme> = mutableListOf(),
         // --] CELL_TYPE_HORIZONTAL_THEME
 
         // [-- CELL_TYPE_JOB_POSTING
@@ -158,7 +158,7 @@ data class CompanySearch(
         val salaryLowest: Int = 0,
 
         @SerializedName("salary_highest")
-        val salary_highest: Int = 0,
+        val salaryHighest: Int = 0,
         // --] CELL_TYPE_SALARY
 
         // [-- CELL_TYPE_REVIEW

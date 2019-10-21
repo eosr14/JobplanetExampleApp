@@ -2,7 +2,6 @@ package com.eosr14.jobplanetexampleapp.ui.main
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +12,7 @@ import com.eosr14.jobplanetexampleapp.common.base.BaseActivity
 import com.eosr14.jobplanetexampleapp.common.base.BaseRecyclerViewAdapter
 import com.eosr14.jobplanetexampleapp.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_horizontal_theme.*
 
 class MainActivity : BaseActivity(), MainViewModelInterface {
 
@@ -38,7 +38,7 @@ class MainActivity : BaseActivity(), MainViewModelInterface {
             layoutManager = LinearLayoutManager(context).apply { orientation = RecyclerView.VERTICAL }
             adapter = MainListAdapter(object : BaseRecyclerViewAdapter.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int, adapter: BaseRecyclerViewAdapter<*, *>) {
-                    Toast.makeText(context, "테스트 Position = $position", Toast.LENGTH_SHORT).show()
+                    // TODO : 상세 페이지로 이동
                 }
             })
         }

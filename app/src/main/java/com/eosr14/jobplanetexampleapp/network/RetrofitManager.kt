@@ -16,9 +16,4 @@ object RetrofitManager {
     fun requestCompanySearch(): Single<CompanySearch> {
         return provideJobplanet().requestCompanySearch()
     }
-//
-//    fun requestCompanySearch(): Call<CompanySearch> {
-//        return provideJobplanet().requestCompanySearch()
-//    }
-
 }

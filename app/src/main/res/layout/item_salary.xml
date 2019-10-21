@@ -28,7 +28,7 @@
                 app:layout_constraintGuide_end="10dp" />
 
             <View
-                android:id="@+id/view_review_title_background"
+                android:id="@+id/view_salary_title_background"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 app:layout_constraintLeft_toLeftOf="@id/guideline_left"
@@ -36,114 +36,111 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/imageview_review_icon"
+                android:id="@+id/imageview_salary_icon"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/view_review_title_background"
-                app:layout_constraintLeft_toLeftOf="@id/view_review_title_background"
-                app:layout_constraintTop_toTopOf="@id/view_review_title_background"
+                app:layout_constraintBottom_toBottomOf="@id/view_salary_title_background"
+                app:layout_constraintLeft_toLeftOf="@id/view_salary_title_background"
+                app:layout_constraintTop_toTopOf="@id/view_salary_title_background"
                 app:urlToImage="@{item.logoPath}" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_review_name"
+                android:id="@+id/text_salary_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginBottom="3dp"
                 android:text="@{item.name}"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@id/text_review_rate_total_avg"
-                app:layout_constraintLeft_toRightOf="@id/imageview_review_icon"
-                app:layout_constraintTop_toTopOf="@id/view_review_title_background"
+                app:layout_constraintBottom_toTopOf="@id/text_salary_rate_total_avg"
+                app:layout_constraintLeft_toRightOf="@id/imageview_salary_icon"
+                app:layout_constraintTop_toTopOf="@id/view_salary_title_background"
                 app:layout_constraintVertical_chainStyle="packed" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_review_rate_total_avg"
+                android:id="@+id/text_salary_rate_total_avg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="3dp"
                 android:text="@{String.valueOf(item.rateTotalAvg)}"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@id/view_review_title_background"
-                app:layout_constraintLeft_toRightOf="@id/imageview_review_icon"
-                app:layout_constraintRight_toLeftOf="@id/text_review_industry_name"
-                app:layout_constraintTop_toBottomOf="@id/text_review_name" />
+                app:layout_constraintBottom_toBottomOf="@id/view_salary_title_background"
+                app:layout_constraintLeft_toRightOf="@id/imageview_salary_icon"
+                app:layout_constraintRight_toLeftOf="@id/text_salary_industry_name"
+                app:layout_constraintTop_toBottomOf="@id/text_salary_name" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_review_industry_name"
+                android:id="@+id/text_salary_industry_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text="@{item.industryName}"
                 android:textColor="@color/gray2"
                 android:textSize="12sp"
-                app:layout_constraintLeft_toRightOf="@id/text_review_rate_total_avg"
-                app:layout_constraintRight_toRightOf="@id/view_review_title_background"
-                app:layout_constraintTop_toTopOf="@id/text_review_rate_total_avg" />
+                app:layout_constraintLeft_toRightOf="@id/text_salary_rate_total_avg"
+                app:layout_constraintRight_toRightOf="@id/view_salary_title_background"
+                app:layout_constraintTop_toTopOf="@id/text_salary_rate_total_avg" />
 
             <View
                 android:id="@+id/line_gray1"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:background="@color/gray1"
-                app:layout_constraintBottom_toTopOf="@id/view_review_description_background"
+                app:layout_constraintBottom_toTopOf="@id/view_salary_description_background"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view_review_title_background" />
+                app:layout_constraintTop_toBottomOf="@id/view_salary_title_background" />
 
             <View
-                android:id="@+id/view_review_description_background"
+                android:id="@+id/view_salary_description_background"
                 android:layout_width="0dp"
-                android:layout_height="180dp"
+                android:layout_height="140dp"
                 app:layout_constraintLeft_toLeftOf="@id/guideline_left"
                 app:layout_constraintRight_toRightOf="@id/guideline_right"
                 app:layout_constraintTop_toBottomOf="@+id/line_gray1" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_review_summary"
+                android:id="@+id/text_salary_avg"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@{item.reviewSummary}"
                 android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="@id/view_review_description_background"
-                app:layout_constraintRight_toRightOf="@id/view_review_description_background"
-                app:layout_constraintTop_toTopOf="@id/view_review_description_background" />
+                app:layout_constraintBottom_toTopOf="@id/text_salary_more"
+                app:layout_constraintLeft_toLeftOf="@id/view_salary_description_background"
+                app:layout_constraintTop_toTopOf="@id/view_salary_description_background"
+                app:salaryAvg="@{item.salaryAvg}" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_review_pros"
-                android:layout_width="0dp"
+                android:id="@+id/text_salary_lowest"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@{@string/main_review_pros(item.pros)}"
-                android:textSize="13sp"
-                app:layout_constraintLeft_toLeftOf="@id/view_review_description_background"
-                app:layout_constraintRight_toRightOf="@id/view_review_description_background"
-                app:layout_constraintTop_toBottomOf="@id/text_review_summary" />
+                android:gravity="start"
+                app:layout_constraintBottom_toBottomOf="@id/view_salary_description_background"
+                app:layout_constraintLeft_toRightOf="@id/text_salary_avg"
+                app:layout_constraintRight_toLeftOf="@id/text_salary_highest"
+                app:layout_constraintTop_toTopOf="@id/view_salary_description_background"
+                app:salaryValue="@{item.salaryLowest}" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_review_cons"
-                android:layout_width="0dp"
+                android:id="@+id/text_salary_highest"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@{@string/main_review_cons(item.cons)}"
-                android:textSize="13sp"
-                app:layout_constraintBottom_toBottomOf="@id/view_review_description_background"
-                app:layout_constraintLeft_toLeftOf="@id/view_review_description_background"
-                app:layout_constraintRight_toRightOf="@id/view_review_description_background"
-                app:layout_constraintTop_toBottomOf="@id/text_review_pros" />
+                android:gravity="end"
+                app:layout_constraintBottom_toBottomOf="@id/view_salary_description_background"
+                app:layout_constraintRight_toRightOf="@id/view_salary_description_background"
+                app:layout_constraintTop_toTopOf="@id/view_salary_description_background"
+                app:salaryValue="@{item.salaryHighest}" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_review_more"
+                android:id="@+id/text_salary_more"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:gravity="center"
-                android:text="@string/main_review_more"
+                android:text="@string/main_salary_more"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="@id/guideline_right"
-                app:layout_constraintTop_toBottomOf="@id/view_review_description_background" />
+                app:layout_constraintTop_toBottomOf="@id/view_salary_description_background" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
