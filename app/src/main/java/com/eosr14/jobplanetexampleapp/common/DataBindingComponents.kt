@@ -8,8 +8,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.eosr14.jobplanetexampleapp.R
 import com.eosr14.jobplanetexampleapp.model.CompanySearch
-import com.eosr14.jobplanetexampleapp.ui.main.MainHorizontalThemeAdapter
-import com.eosr14.jobplanetexampleapp.ui.main.MainListAdapter
+import com.eosr14.jobplanetexampleapp.ui.main.adapter.MainListAdapter
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.controller.BaseControllerListener
 import com.facebook.drawee.view.SimpleDraweeView

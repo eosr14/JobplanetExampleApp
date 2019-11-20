@@ -11,8 +11,8 @@ import com.eosr14.jobplanetexampleapp.common.VerticalMarginDecoration
 import com.eosr14.jobplanetexampleapp.common.base.BaseActivity
 import com.eosr14.jobplanetexampleapp.common.base.BaseRecyclerViewAdapter
 import com.eosr14.jobplanetexampleapp.databinding.ActivityMainBinding
+import com.eosr14.jobplanetexampleapp.ui.main.adapter.MainListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item_horizontal_theme.*
 
 class MainActivity : BaseActivity(), MainViewModelInterface {
 
@@ -36,11 +36,17 @@ class MainActivity : BaseActivity(), MainViewModelInterface {
         recyclerview_main.run {
             addItemDecoration(VerticalMarginDecoration(this@MainActivity))
             layoutManager = LinearLayoutManager(context).apply { orientation = RecyclerView.VERTICAL }
-            adapter = MainListAdapter(object : BaseRecyclerViewAdapter.OnItemClickListener {
-                override fun onItemClick(view: View, position: Int, adapter: BaseRecyclerViewAdapter<*, *>) {
-                    // TODO : 상세 페이지로 이동
-                }
-            })
+            adapter =
+                MainListAdapter(
+                    object : BaseRecyclerViewAdapter.OnItemClickListener {
+                        override fun onItemClick(
+                            view: View,
+                            position: Int,
+                            adapter: BaseRecyclerViewAdapter<*, *>
+                        ) {
+                            // TODO : 상세 페이지로 이동
+                        }
+                    })
         }
 
         mainViewModel.isProgress.observe(this@MainActivity, Observer {
