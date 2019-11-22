@@ -2,6 +2,7 @@ package com.eosr14.jobplanetexampleapp
 
 import android.app.Application
 import android.content.Context
+import androidx.multidex.MultiDexApplication
 import com.eosr14.jobplanetexampleapp.network.RetrofitClient
 import com.facebook.cache.disk.DiskCacheConfig
 import com.facebook.drawee.backends.pipeline.Fresco
@@ -9,7 +10,7 @@ import com.facebook.imagepipeline.backends.okhttp3.OkHttpImagePipelineConfigFact
 import com.facebook.imagepipeline.cache.MemoryCacheParams
 import com.facebook.imagepipeline.core.ImagePipelineConfig
 
-class JobplanetExampleApplication : Application() {
+class JobplanetExampleApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
