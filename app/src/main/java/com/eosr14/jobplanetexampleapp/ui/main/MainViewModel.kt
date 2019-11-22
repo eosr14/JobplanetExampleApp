@@ -27,28 +27,7 @@ class MainViewModel(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ model ->
-
-                    model.items.run {
-                        for (item in model.items) {
-                            android.util.Log.d("eosr14", "CompanyType Test1 = ${item.cellType} ${ItemType.Type.COMPANY.cellType}")
-                            when (item.cellType) {
-                                ItemType.Type.COMPANY.cellType -> item.companyItemType = ItemType.Type.COMPANY
-                                ItemType.Type.HORIZONTAL_THEME.cellType -> item.companyItemType = ItemType.Type.HORIZONTAL_THEME
-                                ItemType.Type.JOB_POSTING.cellType -> item.companyItemType = ItemType.Type.JOB_POSTING
-                                ItemType.Type.INTERVIEW.cellType -> item.companyItemType = ItemType.Type.INTERVIEW
-                                ItemType.Type.SALARY.cellType -> item.companyItemType = ItemType.Type.SALARY
-                                ItemType.Type.REVIEW.cellType -> item.companyItemType = ItemType.Type.REVIEW
-                                else -> item.companyItemType = ItemType.Type.EMPTY
-                            }
-
-                            android.util.Log.d("eosr14", "CompanyType Test2 = ${item.companyItemType}")
-                        }
-
-                        _searchItems.value = this
-                    }
-
-//                    _searchItems.value = model.items
-
+                    _searchItems.value = model.items
                     progress.value = false
                 }, {
                     progress.value = false

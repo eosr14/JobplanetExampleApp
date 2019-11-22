@@ -27,9 +27,9 @@ data class Search(
     @SerializedName("minimum_salaries")
     val minimumSalaries: Int = 0
 ) {
-    data class Items(
+    data class Items (
 
-        var companyItemType : ItemType.Type = ItemType.Type.EMPTY,
+        var itemType : ItemType.Type = ItemType.Type.EMPTY,
 
         @SerializedName("cell_type")
         val cellType: String = "",

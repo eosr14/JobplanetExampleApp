@@ -1,6 +1,8 @@
 package com.eosr14.jobplanetexampleapp.network
 
 import com.eosr14.jobplanetexampleapp.BuildConfig
+import com.eosr14.jobplanetexampleapp.model.ModelDeserializer
+import com.eosr14.jobplanetexampleapp.model.Search
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.CookieJar
@@ -25,8 +27,7 @@ class RetrofitClient {
             .baseUrl(baseUrl)
             .client(provideOkHttpClient())
             .addConverterFactory(GsonConverterFactory.create(
-//                GsonBuilder().registerTypeAdapter().create()
-//                .registerTypeAdapter(BaseItemModel::class.java, ModelDeserializer())
+                GsonBuilder().registerTypeAdapter(Search.Items::class.java, ModelDeserializer()).create()
             ))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()

@@ -13,8 +13,7 @@ import com.eosr14.jobplanetexampleapp.ui.main.viewHolder.MainHorizontalThemeItem
 class MainHorizontalThemeAdapter(
     themes : MutableList<Search.Theme>,
     onItemClickListener: OnItemClickListener
-) :
-    BaseRecyclerViewAdapter<Search.Theme, BaseViewHolder<Search.Theme>>() {
+) : BaseRecyclerViewAdapter<Search.Theme, BaseViewHolder<Search.Theme>>() {
 
     init {
         this.onItemClickListener = onItemClickListener
