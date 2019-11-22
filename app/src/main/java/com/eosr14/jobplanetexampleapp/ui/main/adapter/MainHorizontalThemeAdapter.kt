@@ -7,21 +7,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eosr14.jobplanetexampleapp.R
 import com.eosr14.jobplanetexampleapp.common.base.BaseRecyclerViewAdapter
 import com.eosr14.jobplanetexampleapp.common.base.BaseViewHolder
-import com.eosr14.jobplanetexampleapp.model.CompanySearch
+import com.eosr14.jobplanetexampleapp.model.Search
 import com.eosr14.jobplanetexampleapp.ui.main.viewHolder.MainHorizontalThemeItemViewHolder
 
 class MainHorizontalThemeAdapter(
-    themes : MutableList<CompanySearch.Theme>,
+    themes : MutableList<Search.Theme>,
     onItemClickListener: OnItemClickListener
 ) :
-    BaseRecyclerViewAdapter<CompanySearch.Theme, BaseViewHolder<CompanySearch.Theme>>() {
+    BaseRecyclerViewAdapter<Search.Theme, BaseViewHolder<Search.Theme>>() {
 
     init {
         this.onItemClickListener = onItemClickListener
         setItems(themes)
     }
 
-    override fun onBindView(holder: BaseViewHolder<CompanySearch.Theme>, position: Int) {
+    override fun onBindView(holder: BaseViewHolder<Search.Theme>, position: Int) {
         holder.bind(getItem(position))
     }
 

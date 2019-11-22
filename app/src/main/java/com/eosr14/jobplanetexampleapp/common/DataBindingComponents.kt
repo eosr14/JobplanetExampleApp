@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.eosr14.jobplanetexampleapp.R
-import com.eosr14.jobplanetexampleapp.model.CompanySearch
+import com.eosr14.jobplanetexampleapp.model.Search
 import com.eosr14.jobplanetexampleapp.ui.main.adapter.MainListAdapter
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.controller.BaseControllerListener
@@ -22,7 +22,7 @@ object DataBindingComponents {
 
     @JvmStatic
     @BindingAdapter("searchItems")
-    fun setSearchItems(recyclerView: RecyclerView, items: MutableList<CompanySearch.Items>) {
+    fun setSearchItems(recyclerView: RecyclerView, items: MutableList<Search.Items>) {
         recyclerView.adapter?.let { adapter ->
             if (adapter is MainListAdapter) {
                 adapter.setItems(items)

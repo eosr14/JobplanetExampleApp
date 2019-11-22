@@ -1,12 +1,14 @@
 package com.eosr14.jobplanetexampleapp.network
 
 import com.eosr14.jobplanetexampleapp.BuildConfig
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import okhttp3.CookieJar
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
 import okhttp3.logging.HttpLoggingInterceptor.Level.BODY
 import okhttp3.logging.HttpLoggingInterceptor.Level.NONE
+import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -22,7 +24,10 @@ class RetrofitClient {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(provideOkHttpClient())
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(
+//                GsonBuilder().registerTypeAdapter().create()
+//                .registerTypeAdapter(BaseItemModel::class.java, ModelDeserializer())
+            ))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
     }

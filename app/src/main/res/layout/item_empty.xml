@@ -34,7 +34,7 @@
 
         <variable
             name="item"
-            type="com.eosr14.jobplanetexampleapp.model.CompanySearch.Items" />
+            type="com.eosr14.jobplanetexampleapp.model.Search.Items" />
 
     </data>
 

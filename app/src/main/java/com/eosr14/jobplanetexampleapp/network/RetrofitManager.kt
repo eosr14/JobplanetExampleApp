@@ -2,7 +2,7 @@ package com.eosr14.jobplanetexampleapp.network
 
 
 import com.eosr14.jobplanetexampleapp.common.JOB_PLANET_BASE_URL
-import com.eosr14.jobplanetexampleapp.model.CompanySearch
+import com.eosr14.jobplanetexampleapp.model.Search
 import com.eosr14.jobplanetexampleapp.network.services.CompanySearchService
 import io.reactivex.Single
 import retrofit2.Call
@@ -13,7 +13,7 @@ object RetrofitManager {
         return RetrofitClient().provideRetrofit(JOB_PLANET_BASE_URL).create(CompanySearchService::class.java)
     }
 
-    fun requestCompanySearch(): Single<CompanySearch> {
+    fun requestCompanySearch(): Single<Search> {
         return provideJobplanet().requestCompanySearch()
     }
 }

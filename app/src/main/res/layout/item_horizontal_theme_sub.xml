@@ -41,7 +41,7 @@
 
         <variable
             name="theme"
-            type="com.eosr14.jobplanetexampleapp.model.CompanySearch.Theme" />
+            type="com.eosr14.jobplanetexampleapp.model.Search.Theme" />
 
     </data>
 

@@ -12,14 +12,12 @@ abstract class BaseRecyclerViewAdapter<T, H : RecyclerView.ViewHolder> :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val clickView = getClickView(holder)
         clickView.setOnClickListener {
-            preProcessOnItemClick(holder.layoutPosition)
             onItemClickListener?.onItemClick(
                 holder.itemView,
                 holder.layoutPosition,
                 this@BaseRecyclerViewAdapter
             )
         }
-        preProcessOnBindView(holder, position)
         onBindView(holder as H, position)
     }
 
@@ -75,9 +73,6 @@ abstract class BaseRecyclerViewAdapter<T, H : RecyclerView.ViewHolder> :
         notifyItemInserted(listItems.size)
     }
 
-    protected open fun preProcessOnBindView(holder: RecyclerView.ViewHolder, position: Int) {}
-
-    protected open fun preProcessOnItemClick(position: Int) {}
 
     protected abstract fun onBindView(holder: H, position: Int)
 
@@ -92,4 +87,9 @@ abstract class BaseRecyclerViewAdapter<T, H : RecyclerView.ViewHolder> :
             holder.itemView.findViewById(clickViewId) ?: throw Exception("ID is invalid")
         }
     }
+
+//    fun newViewHolderInstance(view: View?): BaseViewHolder? {
+//        return viewHolderName.getConstructor(View::class.java).newInstance(view) as BaseViewHolder }
+//    }
+
 }
