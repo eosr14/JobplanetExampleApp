@@ -30,6 +30,7 @@ data class Search(
     data class Items (
 
         var itemType : ItemType.Type = ItemType.Type.EMPTY,
+        var childList : List<Any> = mutableListOf(),
 
         @SerializedName("cell_type")
         val cellType: String = "",

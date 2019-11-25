@@ -36,11 +36,7 @@ class MainListAdapter(onItemClickListener: OnItemClickListener) :
                     adapter = MainHorizontalThemeAdapter(
                         getItem(position).themes,
                         object : OnItemClickListener {
-                            override fun onItemClick(
-                                view: View,
-                                position: Int,
-                                adapter: BaseRecyclerViewAdapter<*, *>
-                            ) {
+                            override fun onItemClick(view: View, position: Int, adapter: BaseRecyclerViewAdapter<*, *>) {
                                 // TODO : 상세 페이지로 이동
                             }
                         })

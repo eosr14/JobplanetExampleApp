@@ -6,7 +6,7 @@ import java.lang.reflect.Type
 
 class ModelDeserializer : JsonDeserializer<Search.Items> {
 
-    private val itemTypes : MutableMap<String, ItemType.Type> = mutableMapOf()
+    private val itemTypes: MutableMap<String, ItemType.Type> = mutableMapOf()
     private val gson: Gson get() = Gson()
 
     init {
@@ -19,21 +19,32 @@ class ModelDeserializer : JsonDeserializer<Search.Items> {
         }
     }
 
-    override fun deserialize(json: JsonElement?, typeOfT: Type?, context: JsonDeserializationContext?): Search.Items {
+    override fun deserialize(
+        json: JsonElement?,
+        typeOfT: Type?,
+        context: JsonDeserializationContext?
+    ): Search.Items {
         return json?.asJsonObject?.let { jsonObject ->
             gson.fromJson(json, Search.Items::class.java).apply {
-
                 if (checkJsonObject(jsonObject, KEY_CELL_TYPE)) {
-                    jsonObject.get(KEY_CELL_TYPE).asString?.let { cellTypeKey ->
-                        itemTypes[cellTypeKey]?.let { type ->
+                    jsonObject.get(KEY_CELL_TYPE).asString?.let { cellType ->
+                        itemTypes[cellType]?.let { type ->
                             this.itemType = type
+
+
+                            // HorizontalTheme List
+//                            if (checkJsonObject(jsonObject, KEY_THEMES)) {
+//                                jsonObject.getAsJsonArray(KEY_THEMES)?.let { jsonArray ->
+//                                    gson.fromJson<List<Search.Theme>>(
+//                                        jsonArray.toString(),
+//                                        object : TypeToken<List<Search.Theme>>() {}.type
+//                                    ).let {
+//                                        this.childList = it
+//                                    }
+//                                }
+//                            }
                         }
                     }
-
-//                    if (checkJsonObject(jsonObject, KEY_THEMES)) {
-//                        val jsonArray = jsonObject.getAsJsonArray(KEY_THEMES)
-//                        val list = gson.fromJson<List<Search.Theme>>(jsonArray.toString(), object  : TypeToken<List<Search.Theme>>() {}.type)
-//                    }
                 }
             } as Search.Items
         } ?: Search.Items()
