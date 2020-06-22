@@ -39,6 +39,7 @@ class MainActivity : BaseActivity(), MainViewModelInterface {
             adapter = MainListAdapter(object : BaseRecyclerViewAdapter.OnItemClickListener {
                 override fun onItemClick(view: View, position: Int, adapter: BaseRecyclerViewAdapter<*, *>) {
                     // TODO : 상세 페이지로 이동
+                    // TODO : TEST1
                 }
             })
         }
